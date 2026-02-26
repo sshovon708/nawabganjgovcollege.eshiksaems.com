@@ -1,0 +1,1405 @@
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/jpg" href="image/dclogo.png">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="css/sm-core-css.css">
+        <link rel="stylesheet" href="css/sm-mint.css">
+        <link rel="stylesheet" href="css/stylesv9.css">
+        <link rel="stylesheet" type="text/css" href="css/select2.css">
+        <link href="css/jquery.bdt.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="css/select2-bootstrap.min.css" />
+        <link href="css/zTreeStyle.css" type="text/css" rel="stylesheet">
+        <title>Student Information Center</title>
+
+        <script src="js/jquery-2.2.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/ie-emulation-modes-warning.js"></script>
+        <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
+        <script src="js/select2.min.js"></script>
+        <script src="js/jquery.sortelements.js" type="text/javascript"></script>
+        <script src="js/jquery.bdt.js" type="text/javascript"></script>
+        <script src="js/jquery.smartmenus.js" type="text/javascript"></script>
+        <script data-require="lodash-underscore@3.7.0" data-semver="3.7.0" src="js/lodash.min.js"></script>
+        <script src="js/jquery.ztree.core.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            let hasRefreshed = false;
+
+            setInterval(function () {
+                if (hasRefreshed) return;
+
+                fetch('check_session.php')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.status === 'changed') {
+                            hasRefreshed = true; // prevent infinite reload
+                            window.location.href = 'index.php'; // ✅ force redirect to login
+                        }
+                    });
+            }, 2000); // check every 2 seconds
+       
+        </script>   
+    </head>
+    <body>
+
+                <div class="container collegecontainer" style="margin-top: 2%">
+                    <div class="row">
+                        <div class="col-sm-2" style="text-align: center; z-index: 1">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img id="dlms" style="height: 110px; width: 100px" src="image/dclogo.png" alt="Dhaka College" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="row" style="margin-top: 20px">
+                                <div class="col-sm-6 companyname">
+                                    <span>Education Management System</span>
+                                    <p style="color: #174CA1; font-weight: 800; font-size: 0.6em; padding-top: 5px">Nawabganj Govt. College Chapainawabganj</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="https://www.eshiksaems.com" target="_blank"><img id="dlms" style="height: 70px; width: 230px; float: right;" src="image/eShiksa_logo.png" alt="eShiksa Logo" /></a>
+                                </div>                                   
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" style="text-align: right">
+                            <a href="Logout">Logout</a>
+                        </div>
+                    </div>
+		            <div class="row rowTop">
+		                <div class="col-sm-6">
+		                    <div class="row">
+		                        <div class="col-sm-3">
+		                            <label>Name :</label>
+		                        </div>
+		                        <div class="col-sm-9">
+		                            <label>Iftakhar Ahmed Shovon (ইফতেখার আহম্মেদ শোভন)</label>
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col-sm-3">
+		                            <label>Class Roll :</label>
+		                        </div>
+		                        <div class="col-sm-9">
+		                            <label>1202425010430</label>
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col-sm-3">
+		                            <label>Admission Roll :</label>
+		                        </div>
+		                        <div class="col-sm-9">
+		                            <label></label>
+		                        </div>
+		                    </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>HSC Reg No.</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <label>2112639897</label>
+                                </div>
+                            </div>                                                                                            
+		                    <div class="row">
+		                        <div class="col-sm-3">
+		                            <label>Department :</label>
+		                        </div>
+		                        <div class="col-sm-9">
+		                            <label>HSC - Science</label>
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col-sm-3">
+		                            <label>Session :</label>
+		                        </div>
+		                        <div class="col-sm-9">
+		                            <label>2024-2025</label>
+		                        </div>
+		                    </div>
+		                    <div class="row">
+		                        <div class="col-sm-3">
+		                            <label>Academic Year :</label>
+		                        </div>
+		                        <div class="col-sm-9">
+		                            <label>2</label>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-6">
+		                    <div class="row">
+		                        <div class="col-sm-12" style="text-align: center">
+                                    <img id="studentImg" style = "height: 150px; width: 150px" src="image/student/20250922113758.JPG" alt="." />
+                                </div>
+		                    </div>
+		                </div>                
+		            </div>                    
+                    <div class="tab" style="background-color: #d9f3f7; padding: 5px">
+                        <div class="row">
+                            <div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'academicResult')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-education' aria-hidden='true'></span> 
+                                                Academic Result
+                                            </button>
+                                          </div><div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'attendance')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-check' aria-hidden='true'></span> 
+                                                Attendance
+                                            </button>
+                                          </div><div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'admitCard')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-credit-card' aria-hidden='true'></span> 
+                                                Admit Card
+                                            </button>
+                                          </div><div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'receiptsPrint')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-print' aria-hidden='true'></span> 
+                                                Receipts Print
+                                            </button>
+                                          </div><div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'profile')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-user' aria-hidden='true'></span> 
+                                                Profile
+                                            </button>
+                                          </div><div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'examForm')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-pencil' aria-hidden='true'></span> 
+                                                Improvement Form Fillup
+                                            </button>
+                                          </div><div class='col-sm-3'>
+                                            <button class='tablinks' onclick="openStudent(event, 'sonaliPay')" style="
+                                                background-color: #17a2b8; 
+                                                color: #ffffff; 
+                                                border: 1px solid #117a8b; 
+                                                padding: 10px; 
+                                                width: 95%; 
+                                                border-radius: 8px; 
+                                                transition: all 0.3s ease-in-out;"
+                                                onmouseover="this.style.backgroundColor='#138496'"
+                                                onmouseout="this.style.backgroundColor='#17a2b8'">
+                                                <span class='glyphicon glyphicon-credit-card' aria-hidden='true'></span> 
+                                                Pay through Sonali Pay
+                                            </button>
+                                          </div>                        </div>                           
+                    </div>
+                  
+                    <div id="sonaliPay" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3 style="color: #117a8b; font-weight: bold;">Pay through Sonali Pay</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p id="payAlrt"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <br>
+                                <button id="connectSonaliPay" class="btn btn-default">Connect Sonali Pay</button>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $('#connectSonaliPay').click(function(){
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block";
+                            $.ajax(
+                            {
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:
+                                {
+                                    rootData: 1202425010430,
+                                    flagreq: 'checkForSonali'
+                                },
+                                success: function (response)
+                                {
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0)
+                                    {
+                                        // alert(response);
+                                        modalLoader.style.display = "none";
+                                        window.open(response, "_blank");
+                                        
+                                    } else
+                                    {
+                                        $('#payAlrt').css('color', 'red');
+                                        $('#payAlrt').html(response);
+                                        setTimeout(function () { $('#payAlrt').html(''); }, 5000);
+                                        modalLoader.style.display = "none";
+                                    }
+                                }
+                            })                                
+                        })
+                    </script>
+                    <div id="examForm" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <h3 style="color: #117a8b; font-weight: bold;">Formfilup</h3>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p id="accAlrt"></p>
+                            </div>
+                        </div>
+                        <div class="row rowTop">
+                            <div class="col-sm-2">
+                                <label>Exam Academic Year</label>
+                                <select id="examAcademicYear" style="width: 100%;">
+                                    <option></option>
+                                                                            <option value="1">1st Year</option>
+                                                                            <option value="2">2nd Year</option>
+                                                                    </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <label>Exam Session</label>
+                                <select id="examSession" style="width: 100%;">
+                                    <option></option>
+                                                                            <option value="18">2022-2023</option>
+                                                                    </select>
+                            </div>                            
+                            <div class="col-sm-3" >
+                                <br>
+                                <button type="button" name="btnStudentDetail" class="btn btn-default" id="btnStudentDetail" onclick="studentSummary()">
+                                    <span class="glyphicon glyphicon-list"></span> View Charge and Course Detail
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row rowTop">
+                            <div class="col-sm-12" id="improvementSubjectList">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        $('#printImpForm').click(function(){
+                            var examAcademicYear = $('#examAcademicYear').val();
+                            var examSession = $('#examSession').val();                            
+                            if(!examSession || !examAcademicYear){
+                                $('#accAlrt').css('color', 'red');
+                                $('#accAlrt').html('Exam session and year require');
+                                setTimeout(function () { $('#accAlrt').html(''); }, 6000);
+                            } else {
+                                var modalLoader = document.getElementById('loader');
+                                modalLoader.style.display = "block"; 
+                                $.ajax({
+                                    type: 'post',
+                                    url: 'controller_student_module.php',
+                                    data:{
+                                        rootData: 1202425010430,
+                                        examAcademicYear: examAcademicYear,
+                                        examSession: examSession,                                        
+                                        flagreq: 'printImpForm'
+                                    },
+                                    success: function(response){
+                                        var str = response;
+                                        var n = str.search("Error");
+                                        if (n < 0){
+                                            modalLoader.style.display = "none";
+                                            window.open("print_improvement_form.php?xxCode=" + response + "&academicYear=" + examAcademicYear + "&session=" + examSession, "_blank");
+                                        } else {
+                                            $('#accAlrt').css('color', 'red');
+                                            $('#accAlrt').html(response);
+                                            setTimeout(function () { $('#accAlrt').html(''); }, 6000);
+                                            modalLoader.style.display = "none";                                            
+                                        }                                        
+                                    }
+                                })                               
+                            }                            
+                        })
+                        function addImpExamSubjects(){
+                            var classRoll = $('#accClassRoll').val();
+                            var courseID = $('#impSubjectList').val();
+                            var cChargeOption = $('#cChargeOption').val();
+                            var examAcademicYear = $('#examAcademicYear').val();
+                            var examSession = $('#examSession').val();   
+                            var studentPhone = $('#stdNewMobileNo').val();  
+                            var regNo = $('#stdNewRegNo').val();                         
+                            if(!courseID){
+                                $('#accAlrt').css('color', 'red');
+                                $('#accAlrt').html('Class Roll and courseID not found');
+                                setTimeout(function () { $('#accAlrt').html(''); }, 6000);
+                            } else {
+                                var modalLoader = document.getElementById('loader');
+                                modalLoader.style.display = "block"; 
+                                $.ajax({
+                                    type: 'post',
+                                    url: 'controller_student_module.php',
+                                    data:{
+                                        rootData: 1202425010430,
+                                        courseID: courseID,
+                                        cChargeOption: cChargeOption,
+                                        examAcademicYear: examAcademicYear,
+                                        examSession: examSession,
+                                        studentPhone: studentPhone,
+                                        regNo: regNo,                                        
+                                        flagreq: 'addImprovementCourse'
+                                    },
+                                    success: function(response){
+                                        var str = response;
+                                        var n = str.search("Error");
+                                        if (n < 0){
+                                            $('#improvementSubjectList').html('');
+                                            $('#improvementSubjectList').html(response);
+                                            modalLoader.style.display = "none";
+                                        } else {
+                                            $('#accAlrt').css('color', 'red');
+                                            $('#accAlrt').html(response);
+                                            setTimeout(function () { $('#accAlrt').html(''); }, 6000);
+                                            modalLoader.style.display = "none";                                            
+                                        }                                        
+                                    }
+                                })                               
+                            }                            
+                        }
+                        function addRemoveConCharge(inp){
+                            var cChargeOption = $('#cChargeOption').val();
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block"; 
+                            var examAcademicYear = $('#examAcademicYear').val(); 
+                            $.ajax({
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data: {
+                                    rootData: inp,
+                                    cChargeOption: cChargeOption,
+                                    examAcademicYear: examAcademicYear,
+                                    flagreq: 'addConditionalChargeToFormFillup'
+                                },
+                                success: function(response){
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0){
+                                        $('#impCollAmt').html(response);
+                                        var feeForSelSub = $('#feeForSelSub').html();
+                                        var totalAmt = parseInt(response) + parseInt(feeForSelSub);
+                                        $('#totalImprovementCharge').html(totalAmt);
+                                        modalLoader.style.display = "none";
+                                    } else {
+                                        modalLoader.style.display = "none";
+                                        $('#accAlrt').css('color', 'red');
+                                        $('#accAlrt').html(response);
+                                        setTimeout(function () { $('#accAlrt').html(''); }, 6000);                                        
+                                    }
+                                }
+                            })
+                        }
+                        function studentSummary(){
+                            var examAcademicYear = $('#examAcademicYear').val();
+                            var examSession = $('#examSession').val();                            
+                            if(!examAcademicYear || !examSession){
+                                $('#accAlrt').css('color', 'red');
+                                $('#accAlrt').html('Exam Session and year require');
+                                setTimeout(function () { $('#accAlrt').html(''); }, 6000);
+                            } else {
+                                var modalLoader = document.getElementById('loader');
+                                modalLoader.style.display = "block";                                
+                                $.ajax({
+                                    type: 'post',
+                                    url: 'controller_student_module.php',
+                                    data: {
+                                        rootData: 1202425010430,
+                                        examAcademicYear: examAcademicYear,
+                                        examSession: examSession,                                         
+                                        flagreq: 'studentForFormfilup'
+                                    },
+                                    success: function(response){
+                                        var str = response;
+                                        var n = str.search("Error");
+                                        if (n < 0){
+                                            
+                                            $('#accountsSummary').html('');
+                                            $('#accountsSummary').html(response);
+                                            $.ajax({
+                                                type: 'post',
+                                                url: 'controller_student_module.php',
+                                                data: {
+                                                    rootData: 1202425010430,
+                                                    examAcademicYear: examAcademicYear,
+                                                    examSession: examSession,                               
+                                                    flagreq: 'studentImpSubjectList'
+                                                },
+                                                success: function(subjectResponse){
+                                                    $('#impSubjectList').html('');
+                                                    $('#impSubjectList').html(subjectResponse);
+                                                    $('select').select2();
+                                                }
+                                            })
+                                            $.ajax({
+                                                type: 'post',
+                                                url: 'controller_student_module.php',
+                                                data: {
+                                                    rootData: 1202425010430,
+                                                    examAcademicYear: examAcademicYear,
+                                                    examSession: examSession,
+                                                    flagreq: 'selectedImpSubjectList'
+                                                },
+                                                success: function(selectedSubjectResponse){
+                                                    $('#improvementSubjectList').html('');
+                                                    $('#improvementSubjectList').html(selectedSubjectResponse);
+                                                }
+                                            })                                            
+                                            modalLoader.style.display = "none";
+                                        } else {
+                                            $('#accountsSummary').html('');
+                                            $('#accAlrt').css('color', 'red');
+                                            $('#accAlrt').html(response);
+                                            setTimeout(function () { $('#accAlrt').html(''); }, 6000);                                            
+                                            modalLoader.style.display = "none";
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                        function removeImpCourse(inp){
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block"; 
+                            var cChargeOption = $('#cChargeOption').val();
+                            var examAcademicYear = $('#examAcademicYear').val();
+                            $.ajax({
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:{
+                                    rootData: inp,
+                                    cChargeOption: cChargeOption,
+                                    examAcademicYear: examAcademicYear,
+                                    flagreq: 'removeImprovementCourse'
+                                },
+                                success: function(response){
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0){
+                                        $('#improvementSubjectList').html('');
+                                        $('#improvementSubjectList').html(response);
+                                        modalLoader.style.display = "none";
+                                    } else {
+                                        $('#accAlrt').css('color', 'red');
+                                        $('#accAlrt').html(response);
+                                        setTimeout(function () { $('#accAlrt').html(''); }, 6000);
+                                        modalLoader.style.display = "none";                                            
+                                    }                                        
+                                }
+                            })
+                        }
+                    </script>                                        
+                    <div id="receiptsPrint" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h3 style="color: #117a8b; font-weight: bold;">Student Fee Payment Reciepts</h3>
+                                </div>
+                            </div>
+                            <div class="row rowTop">
+                                <div class="col-sm-2">
+                                    <br>
+                                    <button type="button" id="btnShowReceipts" class="btn btn-info">Show Payment List</button> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row rowTop">
+                            <div class="col-sm-12" id="reciptsInfo">
+                                
+                            </div>
+                        </div>
+                        <div class="row rowTop">
+                            <p id="reciptsAlrt"></p>
+                        </div>
+                        <div class="row rowTop">
+                            <div class="col-sm-12" id="stdSlip" hidden>
+                                <iframe id="stdCollectionSlip" src="https://eshiksaems.com" style="display:block; width: 100%; height:400px">
+                                </iframe>
+                            </div>                            
+                        </div>
+                        <div class="row rowTop">
+                        </div>                         
+                    </div>
+                    <script type="text/javascript">
+                        $('#btnShowReceipts').click(function(){
+                            $('#stdSlip').prop('hidden',true);
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block";
+                            $.ajax(
+                            {
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:
+                                {
+                                    rootData: 1202425010430,
+                                    flagreq: 'transactionCheck'
+                                },
+                                success: function (response)
+                                {
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0)
+                                    {
+                                        $('#reciptsInfo').html('');
+                                        $('#reciptsInfo').html(response);
+                                        modalLoader.style.display = "none";
+                                    } else
+                                    {
+                                        $('#reciptsAlrt').css('color', 'red');
+                                        $('#reciptsAlrt').html('Class roll not found');
+                                        setTimeout(function () { $('#reciptsAlrt').html(''); }, 5000);
+                                        modalLoader.style.display = "none";
+                                    }
+                                }
+                            })                                
+                        })
+                        function printReceipts(inp){
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block";
+                            $.ajax(
+                            {
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:
+                                {
+                                    rootData: inp,
+                                    flagreq: 'ajaxEncryption'
+                                },
+                                success: function (response)
+                                {
+                                    $('#stdCollectionSlip').prop('src','https://nawabganjgovcollege.eshiksaems.com/std_coll_slip.php?xxCode=' + response);
+                                    modalLoader.style.display = "none";
+                                }
+                            })                            
+                            $('#stdSlip').prop('hidden',false);
+
+                        }
+                    </script>                                        
+                    <div id="profile" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <h3 style="color: #117a8b; font-weight: bold;">Student Profile</h3>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p style="color: red">অসত্য বা ভুল তথ্য প্রদানের ফলে যে কোন জটিলতার জন্য শিক্ষার্থী নিজে দায়ী থাকবে।</p>
+                                    </div>                                      
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p id="profileAlrt"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <br>
+                                <button id="profileClassRoll" class="btn btn-default" style="width: 100%" onclick="profileStudentRoll()"><span class="glyphicon glyphicon-search"></span> View</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <br>
+                                <button id="profileClassRoll" style="width: 100%" class="btn btn-primary" onclick="editProfile()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+                            </div> 
+                            <div class="col-sm-4">
+                                <br>
+                                <button id="profileClassRoll" style="width: 100%" class="btn btn-info" onclick="printProfile()"><span class="glyphicon glyphicon-print"></span> Print Profile</button>
+                            </div>                            
+                        </div>
+                        <div class="row" id="stdInfo">
+                        </div>
+                    </div>
+                    <script>
+                        function profileStudentRoll()
+                        {
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block";
+                            $.ajax(
+                            {
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:
+                                {
+                                    rootData: 1202425010430,
+                                    flagreq: 'profileRollCheck'
+                                },
+                                success: function (response)
+                                {
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0)
+                                    {
+                                        $('#stdInfo').html('');
+                                        $('#stdInfo').html(response);
+                                        modalLoader.style.display = "none";
+                                    } else
+                                    {
+                                        $('#examAlrt').css('color', 'red');
+                                        $('#examAlrt').html('Class roll not found');
+                                        setTimeout(function () { $('#examAlrt').html(''); }, 3000);
+                                        modalLoader.style.display = "none";
+                                    }
+                                }
+                            })
+                        }
+                        function printProfile(){
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block";                                
+                            $.ajax({
+                                type: 'post',
+                                url: 'requestData',
+                                data: {
+                                    rootData: 1202425010430,
+                                    flagreq: 'studentIDrequire'
+                                },
+                                success: function(responseID){
+                                    var str = responseID;
+                                    var n = str.search("Error");
+                                    if (n < 0)
+                                    {
+                                        $.ajax({
+                                            type: 'post',
+                                            url: 'requestData',
+                                            data: {
+                                                rootData: responseID,
+                                                flagreq: 'ajaxEncryption'
+                                            },
+                                            success: function (response)
+                                            {
+                                                var str = response;
+                                                var n = str.search("Error");
+                                                if (n < 0)
+                                                {
+                                                    window.open("Student-Admission?xxCode=" + response + "&yyCode=1", "_blank");
+                                                    modalLoader.style.display = "none";
+                                                } else
+                                                {
+                                                    $('#profileAlrt').css('color', 'red');
+                                                    $('#profileAlrt').html(response);
+                                                    modalLoader.style.display = "none";
+                                                }
+                                            }
+                                        })                                            
+                                    } else
+                                    {
+                                        $('#profileAlrt').css('color', 'red');
+                                        $('#profileAlrt').html(responseID);
+                                        modalLoader.style.display = "none";
+                                    }                                        
+                                }
+                            })
+                        }
+                        function editProfile(){
+                            $('#studentProfileUpdate').prop('hidden', true);
+                            $.ajax({
+                                type: 'post',
+                                url: 'requestData',
+                                data: {
+                                    rootData: 1202425010430,
+                                    flagreq: 'checkProfileEditPermission'
+                                },
+                                success: function(response){
+                                    if(response == 'allowed'){
+                                        var modalLoader = document.getElementById('loader');
+                                        modalLoader.style.display = "block";
+                                        $.ajax(
+                                        {
+                                            type: 'post',
+                                            url: 'otpModal.php',
+                                            data:
+                                            {
+                                                rootData: 1202425010430                                            },
+                                            success: function (response)
+                                            {
+                                                $('#studentPerformance').html(response);
+                                                modalLoader.style.display = "none";                                            
+                                                var modal = document.getElementById('stdUpdateModal');
+                                                var span = document.getElementById('stdUpdateClose');
+                                                modal.style.display = 'block';
+                                                span.onclick = function () {
+                                                    modal.style.display = 'none';
+                                                }
+                                                $('#classRollUpdate').val("1202425010430");                             
+                                            }
+                                        }) 
+                                    } else {
+                                        $('#stdInfo').html('');
+                                        $('#stdInfo').html(response);  
+                                        setTimeout(function () { $('#stdInfo').html(''); }, 5000);                              
+                                    }
+                                }
+                            })
+                        }                        
+                    </script>
+                    <div id="academicResult" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <div class="row">
+                            
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3 style="color: #117a8b; font-weight: bold;">Academic Result</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p id="acaAlrt"></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <label>Exam Level</label>
+                                        <select id="examLevel" data-placeholder="Select Level...." style="width: 100%" onchange="populateFaculty(this)">
+                                            <option></option>
+                                                                                            <option value="HSC">HSC</option>
+                                                                                            <option value="Hons">Hons</option>
+                                                                                            <option value="Masters">Masters</option>
+                                                                                            <option value="Prel">Prel</option>
+                                                                                            <option value="Pass">Pass</option>
+                                                                                            <option value="Application Form">Application Form</option>
+                                                                                    </select>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label>Department/Group</label>
+                                        <select id="accFacultyID" data-placeholder="Select department/group..." style="width: 100%;" >
+                                            <option></option>
+                                            <option value="HSC- Science">HSC - Science</option>
+                                            <option value="HSC- Humanities">HSC - Humanities</option>
+                                            <option value="HSC- Business Study">HSC - Business Study</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>Session</label>
+                                        <select id="accSessionID" data-placeholder="Select Session ....." style="width: 100%;" ]>
+                                            <option></option>
+                                                                                            <option value="21">2025-2026</option>
+                                                                                            <option value="20">2024-2025</option>
+                                                                                            <option value="19">2023-2024</option>
+                                                                                            <option value="18">2022-2023</option>
+                                                                                            <option value="17">2021-2022</option>
+                                                                                            <option value="6">2020-2021</option>
+                                                                                            <option value="5">2019-2020</option>
+                                                                                            <option value="4">2018-2019</option>
+                                                                                            <option value="3">2017-2018</option>
+                                                                                            <option value="2">2016-2017</option>
+                                                                                            <option value="1">2015-2016</option>
+                                                                                            <option value="7">2014-2015</option>
+                                                                                            <option value="8">2013-2014</option>
+                                                                                            <option value="9">2012-2013</option>
+                                                                                            <option value="10">2011-2012</option>
+                                                                                            <option value="11">2010-2011</option>
+                                                                                            <option value="12">2009-2010</option>
+                                                                                            <option value="13">2008-2009</option>
+                                                                                            <option value="14">2007-2008</option>
+                                                                                            <option value="15">2006-2007</option>
+                                                                                            <option value="16">2005-2006</option>
+                                                                                    </select>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label>Exam Name</label>
+                                        <select id="examList" class="select2" style="width: 100%">
+                                            <option></option>
+                                            <option value="">Test (2nd Year HSC - Science Session :2024-2025)</option>
+                                            <option value="">Pre-Test (2nd Year HSC - Science Session :2024-2025)</option>
+                                            <option value="">Annual Exam (1st Year HSC - Science Session :2024-2025)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                    <div class="col-sm-12">
+                                        <label><u>Output Option</u></label><br>
+                                        <input type="radio" name="outputOption" value="print" checked> Print 
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                    <div class="col-sm-4">
+                                        <br>
+                                        <button id="btnAllList" class="btn btn-default" onclick="window.location.href='https://drive.google.com/file/d/1eEBYUCP2aGVde3nNSYr-4-9UwdpiE0qm/preview'"><span class="glyphicon glyphicon-list"></span> Transcript</button>
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                </div>                        
+
+                        </div>
+                    </div>
+                    <div id="attendance" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <div class="row">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3 style="color: #117a8b; font-weight: bold;">Attendance</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p id="attAlrt"></p>
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                    <div class="col-sm-4" style="padding-right: 0px; padding-left: 15px">
+                                        <label>Class Roll</label>
+                                        <input type="text" id="attendanceClassRoll" placeholder="Enter class roll" class="form-control input-sm">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>From Date</label>
+                                        <input type="text" id="attendanceStartDate" class="form-control input-sm">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>To Date</label>
+                                        <input type="text" id="attendanceEndDate" class="form-control input-sm">
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                </div>
+                                <div class="row rowTop">
+                                    <div class="col-sm-12">
+                                        <button id="btnAttendance" class="btn btn-default"><span class="glyphicon glyphicon-list"></span> View Attendance</button>
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                </div>
+                        </div>
+                    </div>
+                    <div id="admitCard" class="tabcontent" style="background-color: #eefcff; padding: 20px; border-radius: 10px; border: 1px solid #b3e0e5;">
+                        <div class="row">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h3 style="color: #117a8b; font-weight: bold;">Admit Card</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p id="admitAlrt"></p>
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                    <div class="col-sm-4">
+                                        <br>
+                                        <button id="btnAdmitSearch" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
+                                    </div>
+                                </div>
+                                <div class="row rowTop">
+                                </div>
+                                <div class="row rowTop">
+                                </div>
+                        </div>
+                    </div>
+                    <script>
+                        $("#btnAdmitSearch").click(function () {
+                            var modalLoader = document.getElementById('loader');
+                            modalLoader.style.display = "block";
+                            $.ajax({
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data: {
+                                    rootData: 1202425010430,
+                                    flagreq: 'StudentAdmitCard'
+                                },
+                                success: function (response) {
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0) {
+                                        modalLoader.style.display = "none";
+                                        window.open("Admit-Card?xxCode=" + response, "_blank");
+                                    } else {
+                                        modalLoader.style.display = "none";
+                                        $('#admitAlrt').css('color', 'red');
+                                        $('#admitAlrt').html(response);
+                                        setTimeout(function () { $('#admitAlrt').html(''); }, 3000);
+                                    }
+                                }
+                            })
+                        })
+                    </script>
+            <script>
+            $(window).load(function ()
+            {
+                $('select').select2();
+            });
+            function restrictToSevenDigits(input) {
+                let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+                if (value.length !== 7) {
+                    input.value = ''; // Clear the input if it's not exactly 7 digits
+                } else {
+                    input.value = value; // Retain the valid 7-digit input
+                }
+            }
+            function validatePhones() {
+                var guardianPhone = $('#gardianPhone').val();
+                var motherPhone = $('#motherPhone').val();
+
+                if (guardianPhone === motherPhone) {
+                    $('#gardianPhone').val('');
+                    $('#motherPhone').val('');
+                }
+            }            
+            function validateNameLength(inp){
+                var nameLength = inp.value;
+                if(nameLength.length < 4){
+                    inp.value = inp.value.replace(nameLength, "");
+                } else {
+                    var characterOnly = /[0-9]/g.test(nameLength);
+                    if (characterOnly) {
+                        inp.value = inp.value.replace(nameLength, "");
+                    }   
+                }
+            }            
+            function validateUnicode(inp){
+                var studentNameBan = inp.value;
+                if(studentNameBan.length < 4){
+                    inp.value = inp.value.replace(studentNameBan, "");
+                } else {
+                    var containsUnicode = /[^\u0000-\u007F]/.test(studentNameBan);
+                    if (!containsUnicode) {
+                        inp.value = inp.value.replace(studentNameBan, "");
+                    }   
+                }
+            }
+            function validateNID(inp){
+                var NID = inp.value;
+                if(NID.length < 10){
+                    inp.value = inp.value.replace(NID, "");
+                } else {
+                    var digitOccurrences = (NID.match(/[1-9]/g) || []).length;
+                    if (digitOccurrences >= 4) {
+                      var fiveSameDigits = /([1-9])\1{4,}/.test(NID);
+                      if (fiveSameDigits) {
+                        inp.value = inp.value.replace(NID, "");
+                      }
+                    } else {
+                        inp.value = inp.value.replace(NID, "");
+                    }                    
+                }                
+            }
+            function validateMobilNo(inp){
+                var mobileNo = inp.value;
+                if(mobileNo.length != 11){
+                    inp.value = inp.value.replace(mobileNo, "");
+                } else {
+                    if(mobileNo.substring(0,2) != '01'){
+                        inp.value = inp.value.replace(mobileNo, "");
+                    }
+                }
+            }
+            function showDepertmentName(){
+                var subjectGroupID = $('#subjectGroupID').val();
+                var modalLoader = document.getElementById('loader');
+                modalLoader.style.display = "block";
+                $.ajax(
+                {
+                    type: "post",
+                    url: "controller_student_module.php",
+                    data:
+                    {
+                        rootData: subjectGroupID,
+                        flagreq: "showDepertmentList"
+                    },
+                    success: function (response)
+                    {
+                        var str = response;
+                        var n = str.search("Error");
+                        if (n < 0)
+                        {
+                            $("#subjectFacultyID").html("");
+                            $("#subjectFacultyID").html(response);
+                            modalLoader.style.display = "none";
+                        } else
+                        {
+                            modalLoader.style.display = "none";
+
+                        }
+                    }
+                })
+            }            
+            $('#attendanceStartDate').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                orientation: "bottom"
+            });
+            $('#attendanceEndDate').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true,
+                orientation: "bottom"
+            });
+            $('#dob').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true
+            });
+            $('#admissionDate').datepicker({
+                format: 'dd-mm-yyyy',
+                autoclose: true
+            });
+            function isNumberKey(inpt)
+            {
+                var regex = /[^0-9.]/g;
+                inpt.value = inpt.value.replace(regex, "");
+            }
+            jQuery(function ($)
+            {
+                $("#attendanceStartDate").mask("99-99-9999", { placeholder: "dd-mm-yyyy" });
+                $("#attendanceEndDate").mask("99-99-9999", { placeholder: "dd-mm-yyyy" });
+                $("#dob").mask("99-99-9999", { placeholder: "dd-mm-yyyy" });
+                $("#admissionDate").mask("99-99-9999", { placeholder: "dd-mm-yyyy" });
+            });
+
+            $('#btnAttendance').click(function ()
+            {
+                //var attendanceSession = $('#sessionIDAttendance').val();
+                //var attendanceFaculty = $('#facultyIDAttendance').val();
+                var classRoll = $('#attendanceClassRoll').val();
+                var startDate = $('#attendanceStartDate').val();
+                var endDate = $('#attendanceEndDate').val();
+                if (classRoll)
+                {
+                    var modalLoader = document.getElementById('loader');
+                    modalLoader.style.display = "block";
+                    $.ajax(
+                        {
+                            type: 'post',
+                            url: 'controller_student_module.php',
+                            data:
+                            {
+                                rootData: 'na',
+                                classRoll: classRoll,
+                                startDate: startDate,
+                                endDate: endDate,
+                                flagreq: 'attendanceView'
+                            },
+                            success: function (response)
+                            {
+                                var str = response;
+                                var n = str.search("Error");
+                                if (n < 0)
+                                {
+                                    $('#resultInfo').html('');
+                                    $('#resultInfo').append(response);
+
+                                    modalLoader.style.display = "none";
+                                } else
+                                {
+                                    $('#resultInfo').append(response);
+                                    modalLoader.style.display = "none";
+                                }
+                            }
+                        })
+                } else
+                {
+                    $('#attAlrt').css('color', 'red');
+                    $('#attAlrt').html('Please enter class roll');
+                    setTimeout(function () { $('#attAlrt').html(''); }, 2000);
+                }
+            })
+            function studentDayWise(inp)
+            {
+                var attendanceSession = $('#sessionIDAttendance').val();
+                var attendanceFaculty = $('#facultyIDAttendance').val();
+                var startDate = $('#attendanceStartDate').val();
+                var endDate = $('#attendanceEndDate').val();
+                window.open("dayWiseAttendance?xxCode=" + inp + "&session=" + attendanceSession + "&faculty=" + attendanceFaculty + "&startDate=" + startDate + "&endDate=" + endDate, "_blank");
+            }
+            function printDayWise(inp)
+            {
+                var attendanceSession = $('#sessionIDAttendance').val();
+                var attendanceFaculty = $('#facultyIDAttendance').val();
+                var startDate = $('#attendanceStartDate').val();
+                var endDate = $('#attendanceEndDate').val();
+                window.open("reportDayWiseAttendance?xxCode=" + inp + "&session=" + attendanceSession + "&faculty=" + attendanceFaculty + "&startDate=" + startDate + "&endDate=" + endDate, "_blank");
+            }
+            function showSchedule()
+            {
+                if ($("input[name='scheduleOption']:checked").val() == 'class')
+                {
+                    var sessionID = $('#sessionID').val();
+                    var facultyID = $('#facultyID').val();
+                    var sectionID = $('#sectionID').val();
+                    if (!sessionID || !facultyID)
+                    {
+                        $('#clsAlrt').css('color', 'red');
+                        $('#clsAlrt').html('Session and Department require');
+                        setTimeout(function () { $('#clsAlrt').html(''); }, 2000);
+                    } else
+                    {
+                        var modalLoader = document.getElementById('loader');
+                        modalLoader.style.display = "block";
+                        $.ajax(
+                            {
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:
+                                {
+                                    rootData: 'na',
+                                    sessionID: sessionID,
+                                    facultyID: facultyID,
+                                    sectionID: sectionID,
+                                    flagreq: 'departmentStatusStudent'
+                                },
+                                success: function (response)
+                                {
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0)
+                                    {
+                                        $('#resultInfo').html('');
+                                        $('#resultInfo').html(response);
+                                        $('#scheduleTable').bdt({
+                                            showSearchForm: 1,
+                                            showEntriesPerPageField: 1
+
+                                        });
+                                        modalLoader.style.display = "none";
+                                    } else
+                                    {
+                                        $('#clsAlrt').css('color', 'red');
+                                        $('#clsAlrt').html(response);
+                                        modalLoader.style.display = "none";
+                                        setTimeout(function () { $('#clsAlrt').html(''); }, 2000);
+                                    }
+                                }
+                            })
+                    }
+                }
+                if ($("input[name='scheduleOption']:checked").val() == 'exam')
+                {
+                    var sessionID = $('#sessionID').val();
+                    var facultyID = $('#facultyID').val();
+                    var sectionID = $('#sectionID').val();
+                    if (!sessionID || !facultyID)
+                    {
+                        $('#clsAlrt').css('color', 'red');
+                        $('#clsAlrt').html('Session and Department require');
+                        setTimeout(function () { $('#clsAlrt').html(''); }, 2000);
+                    } else
+                    {
+                        var modalLoader = document.getElementById('loader');
+                        modalLoader.style.display = "block";
+                        $.ajax(
+                            {
+                                type: 'post',
+                                url: 'controller_student_module.php',
+                                data:
+                                {
+                                    rootData: 'na',
+                                    sessionID: sessionID,
+                                    facultyID: facultyID,
+                                    flagreq: 'SELECT'
+                                },
+                                success: function (response)
+                                {
+                                    var str = response;
+                                    var n = str.search("Error");
+                                    if (n < 0)
+                                    {
+                                        $('#resultInfo').html('');
+                                        $('#resultInfo').html(response);
+                                        $('#scheduleTable').bdt({
+                                            showSearchForm: 1,
+                                            showEntriesPerPageField: 1
+
+                                        });
+                                        modalLoader.style.display = "none";
+                                    } else
+                                    {
+                                        $('#clsAlrt').css('color', 'red');
+                                        $('#clsAlrt').html(response);
+                                        modalLoader.style.display = "none";
+                                        setTimeout(function () { $('#clsAlrt').html(''); }, 2000);
+                                    }
+                                }
+                            })
+                    }
+                }
+            }
+            function openStudent(evt, performanceTab)
+            {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++)
+                {
+                    tabcontent[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++)
+                {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                if (performanceTab == 'classSchedule')
+                {
+                    $('#resultInfo').html('');
+                    $('#trackNo').html('');
+                    $('#admissionForm').attr('hidden', true);
+                }
+                if (performanceTab == 'attendance')
+                {
+                    $('#resultInfo').html('');
+                    $('#trackNo').html('');
+                    $('#admissionForm').attr('hidden', true);
+                }
+                if (performanceTab == 'academicResult')
+                {
+                    $('#resultInfo').html('');
+                    $('#trackNo').html('');
+                    $('#admissionForm').attr('hidden', true);
+                }
+                if (performanceTab == 'admission')
+                {
+                    $('#resultInfo').html('');
+                    $('#trackNo').html('');
+                    $('#admissionForm').attr('hidden', true);
+                }
+                if (performanceTab == 'admitCard')
+                {
+                    $('#resultInfo').html('');
+                    $('#trackNo').html('');
+                    $('#admissionForm').attr('hidden', true);
+                }
+                if (performanceTab == 'noticeBoard')
+                {
+                    $('#resultInfo').html('');
+                    $('#trackNo').html('');
+                    $('#admissionForm').attr('hidden', true);
+                }
+                document.getElementById(performanceTab).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            function readURL(input)
+            {
+                if (input.files && input.files[0])
+                {
+                    var reader = new FileReader();
+
+                    var imgPath = $('#fileToUpload')[0].value;
+                    var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+
+                    if (extn == "gif" || extn == "png" || extn == "jpg")
+                    {
+                        var dt = input.files[0].size;
+                        if (dt < 1022976)
+                        {
+                            reader.onload = function (e)
+                            {
+                                $('#studentImg')
+                                       .attr('src', e.target.result)
+                                       .width(200)
+                                       .height(200);
+                            };
+
+                            reader.readAsDataURL(input.files[0]);
+                            $('#fError').html('');
+                            $('#ftoUP').html('File Size: ' + Math.round(dt / 1024) + ' KB');
+                        } else
+                        {
+                            $('#fileToUpload')[0].value = '';
+                            $('#studentImg').attr('src', '');
+                            $('#fError').html('File size exceeded');
+                        }
+                    } else
+                    {
+                        $('#fileToUpload')[0].value = '';
+                        $('#studentImg').attr('src', '');
+                        $('#fError').html('Unknown format');
+                    }
+                }
+            }
+            function readURL2(input)
+            {
+                if (input.files && input.files[0])
+                {
+                    var reader = new FileReader();
+
+                    var imgPath = $('#fileToUpload2')[0].value;
+                    var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+
+                    if (extn == "gif" || extn == "png" || extn == "jpg")
+                    {
+                        var dt = input.files[0].size;
+                        if (dt < 1022976)
+                        {
+                            reader.onload = function (e)
+                            {
+                                $('#studentImg2')
+                                       .attr('src', e.target.result)
+                                       .width(200)
+                                       .height(200);
+                            };
+
+                            reader.readAsDataURL(input.files[0]);
+                            $('#fErr').html('');
+                            $('#ftoUP2').html('File Size: ' + Math.round(dt / 1024) + ' KB');
+                        } else
+                        {
+                            $('#fileToUpload2')[0].value = '';
+                            $('#studentImg2').attr('src', '');
+                            $('#fErr').html('File size exceeded');
+                        }
+                    } else
+                    {
+                        $('#fileToUpload2')[0].value = '';
+                        $('#studentImg2').attr('src', '');
+                        $('#fErr').html('Unknown format');
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
